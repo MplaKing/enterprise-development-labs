@@ -40,8 +40,6 @@ builder.Services.AddScoped<IAnalyticsService, DailyScheduleCrudService>();
 builder.Services.AddDbContextFactory<AutoDispatcherDbContext>(options =>
     options.UseLazyLoadingProxies().UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQL")));
 
-builder.Services.AddCors(options => options.AddDefaultPolicy(policy => { policy.WithOrigins("http://localhost:5244"); policy.AllowAnyMethod(); policy.AllowAnyHeader(); }));
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

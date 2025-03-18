@@ -37,29 +37,4 @@ public class DriverEfCoreRepository(AutoDispatcherDbContext context) : IReposito
         await context.SaveChangesAsync();
         return (await Get(entity.Id))!;
     }
-
-    //public async Task<IList<Tuple<string, int>>> GetLast5AuthorsBook(int key)
-    //{
-    //    var author = await context.Drivers.FirstOrDefaultAsync(e => e.Id == key);
-    //    var books = new List<Book>();
-    //    if (author != null && author.BookAuthors != null)
-    //        foreach (var ba in author.BookAuthors)
-    //            if (ba != null && ba.Book != null)
-    //                books.Add(ba.Book);      
-    //    return books.ToArray()
-    //        .OrderByDescending(book => book.Year)
-    //        .Take(5)
-    //        .Select(book => new Tuple<string, int>(book.ToString(), book.Year ?? 0))
-    //        .ToList();
-    //}
-
-    //public async Task<IList<Tuple<string, int>>> GetTop5AuthorsByPageCount() =>
-    //    (await _drivers.ToArrayAsync())
-    //        .OrderByDescending(author => author.GetPageCount())
-    //        .Take(5)
-    //        .Select(author => new Tuple<string, int>(author.ToString(), author.GetPageCount() ?? 0))
-    //        .ToList();
-            
-    
-
 }

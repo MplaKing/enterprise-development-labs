@@ -8,15 +8,14 @@ namespace AutoDispatcher.Domain.Tests;
 public class AutoDispatcherTests
 {
     /// <summary>
-    /// Параметризованный тест метода
+    /// Непараметрический тест метода
     /// </summary>
-    [Theory]
-    [InlineData(3)]
-    public async Task GetTop5Drivers_Success(int expectedCount)
+    [Fact]
+    public async Task GetTop5Drivers_Success()
     {
         var repo = new DailyScheduleInMemoryRepository();
         var drivers = await repo.GetTop5Drivers();
-        Assert.Equal(expectedCount, drivers.Count);
+        Assert.Equal(3, drivers.Count);
     }
     /// <summary>
     /// Непараметрический тест метода
