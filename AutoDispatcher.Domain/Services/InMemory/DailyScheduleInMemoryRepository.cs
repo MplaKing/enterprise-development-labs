@@ -163,6 +163,7 @@ public class DailyScheduleInMemoryRepository : IDailyScheduleRepository
                 AverageDuration = x.Average(a => (a.EndTime - a.StartTime).TotalHours),
                 MaxDuration = x.Max(a => (a.EndTime - a.StartTime).TotalHours)
             })
+            .DistinctBy(x => x.DriverName)
             .Select(x => $"Водитель: {x.DriverName}, " +
             $"Количество поездок: {x.TripCount}, " +
             $"Среднее время поездки: {x.AverageDuration} часов, " +
